@@ -58,8 +58,11 @@ class GateKeeperProxy : public BnGateKeeperService {
 public:
     GateKeeperProxy() {
         clear_state_if_needed_done = false;
+#ifdef USE_SOFT_GATEKEEPER
+	hw_device = nullptr;
+#else
         hw_device = IGatekeeper::getService();
-
+#endif
         if (hw_device == nullptr) {
             ALOGW("falling back to software GateKeeper");
             soft_device.reset(new SoftGateKeeperDevice());
