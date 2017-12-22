@@ -38,6 +38,10 @@ LOCAL_SHARED_LIBRARIES := \
 	libhwbinder \
 	android.hardware.gatekeeper@1.0 \
 
+ifeq ($(strip $(BOARD_USE_SOFT_GATEKEEPER)),true)
+LOCAL_CFLAGS += -DUSE_SOFT_GATEKEEPER
+endif
+
 LOCAL_STATIC_LIBRARIES := libscrypt_static
 LOCAL_C_INCLUDES := external/scrypt/lib/crypto
 LOCAL_INIT_RC := gatekeeperd.rc
