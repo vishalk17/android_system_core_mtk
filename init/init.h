@@ -19,7 +19,7 @@
 
 #include <string>
 
-extern const char *ENV[32];
+extern const char *ENV[64];
 extern std::string default_console;
 extern struct selabel_handle *sehandle;
 extern struct selabel_handle *sehandle_prop;

@@ -83,7 +83,7 @@ static char qemu[32];
 std::string default_console = "/dev/console";
 static time_t process_needs_restart_at;
 
-const char *ENV[32];
+const char *ENV[64];
 
 static int epoll_fd = -1;
 
